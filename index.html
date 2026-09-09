@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>🎬 ทำวิดีโอโฆษณา TikTok ด้วย AI ใน 4 ขั้น — TT VDO</title>
+<style>
+/* ===== Simple, easy-to-read light theme ===== */
+:root {
+  --bg: #fafbfc;
+  --card: #ffffff;
+  --tint: #f1f3f8;
+  --border: #e5e7eb;
+  --text: #1a1d29;
+  --dim: #5b6471;
+  --muted: #9aa3b2;
+  --brand: #5b4ce6;        /* primary indigo */
+  --brand-soft: #ede9fe;
+  --green: #16a34a;
+  --green-soft: #dcfce7;
+  --orange: #ea580c;
+  --orange-soft: #ffedd5;
+  --red: #dc2626;
+  --red-soft: #fee2e2;
+  --code-bg: #f6f7f9;
+  --code-text: #0f172a;
+  --shadow: 0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.04);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.08);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Bai Jamjuree', -apple-system, BlinkMacSystemFont, 'Sarabun', 'Segoe UI', sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.75;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+.container { max-width: 880px; margin: 0 auto; padding: 24px 20px; }
+
+/* ===== Hero ===== */
+.hero {
+  text-align: center;
+  padding: 60px 20px 50px;
+  background: linear-gradient(160deg, #ede9fe 0%, #fef3c7 50%, #dbeafe 100%);
+  border-radius: 24px;
+  margin-bottom: 40px;
+}
+.hero .eyebrow {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(255,255,255,0.7);
+  border-radius: 999px;
+  font-size: 13px;
+  color: var(--brand);
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+.hero h1 {
+  font-size: 42px;
+  line-height: 1.15;
+  margin-bottom: 16px;
+  color: #1a1d29;
+  letter-spacing: -0.5px;
+}
+.hero h1 .hl {
+  background: linear-gradient(120deg, #5b4ce6 0%, #d946ef 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.hero .tagline {
+  font-size: 18px;
+  color: var(--dim);
+  max-width: 560px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* ===== 4-step preview ===== */
+.steps-preview {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 32px auto 0;
+  max-width: 700px;
+}
+.step-mini {
+  background: rgba(255,255,255,0.85);
+  border-radius: 12px;
+  padding: 14px 8px;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+}
+.step-mini .num {
+  display: inline-block;
+  width: 28px;
+  height: 28px;
+  line-height: 28px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: white;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.step-mini .icon { font-size: 22px; display: block; margin-bottom: 4px; }
+
+/* ===== Section ===== */
+section { margin-bottom: 56px; }
+h2 {
+  font-size: 30px;
+  color: var(--text);
+  margin: 0 0 8px;
+  letter-spacing: -0.3px;
+}
+h2 .num {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: white;
+  font-size: 20px;
+  font-weight: 700;
+  margin-right: 12px;
+  vertical-align: middle;
+}
+h3 {
+  font-size: 20px;
+  color: var(--brand);
+  margin: 24px 0 10px;
+}
+p { margin-bottom: 12px; color: var(--text); }
+p.lead { font-size: 17px; color: var(--dim); }
+ul, ol { padding-left: 22px; margin-bottom: 12px; }
+li { margin: 6px 0; }
+strong { color: #0f172a; }
+
+/* ===== Step block ===== */
+.step {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: var(--shadow);
+}
+.step-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.step-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  background: var(--brand);
+  color: white;
+  font-weight: 700;
+  font-size: 18px;
+  padding: 0 16px;
+}
+.step-title { font-size: 22px; font-weight: 700; color: var(--text); }
+.step-time {
+  margin-left: auto;
+  font-size: 12px;
+  color: var(--dim);
+  background: var(--tint);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+.step p { font-size: 16px; color: var(--dim); }
+.step ul { font-size: 15px; color: var(--dim); }
+
+/* ===== Screenshot ===== */
+.shot {
+  width: 100%;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin: 16px 0 4px;
+  display: block;
+  box-shadow: var(--shadow);
+}
+.shot-cap {
+  text-align: center;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 0 0 12px;
+  font-style: italic;
+}
+
+/* ===== Tip box ===== */
+.tip {
+  background: var(--green-soft);
+  border-left: 4px solid var(--green);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+  color: #14532d;
+  font-size: 15px;
+}
+.tip strong { color: #14532d; }
+.warn {
+  background: var(--orange-soft);
+  border-left: 4px solid var(--orange);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+  color: #7c2d12;
+  font-size: 15px;
+}
+.danger {
+  background: var(--red-soft);
+  border-left: 4px solid var(--red);
+  border-radius: 0 8px 8px 0;
+  padding: 14px 18px;
+  margin: 16px 0;
+  color: #7f1d1d;
+  font-size: 15px;
+}
+
+/* ===== Videos ===== */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 20px;
+  margin: 20px 0;
+}
+.video-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.video-card video {
+  width: 100%;
+  display: block;
+  background: #000;
+}
+.video-card .vmeta {
+  padding: 14px 16px;
+}
+.video-card .vtitle {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.video-card .vinfo {
+  font-size: 13px;
+  color: var(--dim);
+}
+
+/* ===== FAQ ===== */
+.faq {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  margin-bottom: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+.faq-q {
+  padding: 16px 20px;
+  font-weight: 600;
+  color: var(--text);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.faq-q::after { content: '▼'; color: var(--muted); font-size: 12px; transition: 0.2s; }
+.faq-a {
+  padding: 0 20px 16px;
+  color: var(--dim);
+  font-size: 15px;
+  display: none;
+}
+.faq.open .faq-q::after { transform: rotate(180deg); }
+.faq.open .faq-a { display: block; }
+
+/* ===== CTA banner ===== */
+.cta {
+  text-align: center;
+  padding: 32px 20px;
+  background: linear-gradient(135deg, #5b4ce6 0%, #d946ef 100%);
+  color: white;
+  border-radius: 16px;
+  margin: 32px 0;
+}
+.cta a {
+  display: inline-block;
+  padding: 14px 32px;
+  background: white;
+  color: var(--brand);
+  text-decoration: none;
+  font-weight: 700;
+  border-radius: 999px;
+  margin-top: 12px;
+  transition: transform 0.2s;
+}
+.cta a:hover { transform: translateY(-2px); }
+
+/* ===== Misc ===== */
+.divider { 
+  height: 1px; 
+  background: var(--border); 
+  margin: 56px 0; 
+}
+.code {
+  background: var(--code-bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-family: 'SF Mono', Menlo, monospace;
+  font-size: 13px;
+  color: var(--code-text);
+  display: inline-block;
+}
+footer {
+  text-align: center;
+  padding: 32px 20px;
+  color: var(--muted);
+  font-size: 13px;
+  border-top: 1px solid var(--border);
+  margin-top: 48px;
+}
+
+@media (max-width: 640px) {
+  .hero h1 { font-size: 30px; }
+  .steps-preview { grid-template-columns: repeat(2, 1fr); }
+  h2 { font-size: 24px; }
+  h2 .num { width: 32px; height: 32px; line-height: 32px; font-size: 16px; }
+  .video-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- ============== HERO ============== -->
+<div class="hero">
+  <div class="eyebrow">🤖 Powered by Google Veo 3.1</div>
+  <h1>ทำวิดีโอโฆษณา TikTok<br>ด้วย AI ใน <span class="hl">4 ขั้น</span></h1>
+  <p class="tagline">เลือกสินค้า → เลือกนางแบบ → กดสร้าง → ได้คลิป<br>ไม่ต้องถ่ายเอง ไม่ต้องตัดต่อ ไม่ต้องมีประสบการณ์</p>
+  
+  <div class="steps-preview">
+    <div class="step-mini"><span class="num">1</span><span class="icon">🛒</span>เลือกสินค้า</div>
+    <div class="step-mini"><span class="num">2</span><span class="icon">👩</span>เลือกนางแบบ</div>
+    <div class="step-mini"><span class="num">3</span><span class="icon">🚀</span>กดสร้าง</div>
+    <div class="step-mini"><span class="num">4</span><span class="icon">🎬</span>ได้คลิป</div>
+  </div>
+</div>
+
+<!-- ============== RESULT FIRST ============== -->
+<section>
+  <h2>🎬 ดูผลลัพธ์จริงก่อน</h2>
+  <p class="lead">นี่คือ 4 คลิปที่ได้จากการกดปุ่มเดียว ใช้เวลาทั้งหมด <strong>1 นาที 50 วินาที</strong></p>
+  
+  <div class="video-grid">
+    <div class="video-card">
+      <video controls preload="metadata" poster="screenshots/iphone15_v1_frame.jpg">
+        <source src="videos/v1.mp4" type="video/mp4">
+      </video>
+      <div class="vmeta">
+        <div class="vtitle">📱 โฆษณา #1 — ถือ iPhone เหลือง</div>
+        <div class="vinfo">ในร้านกาแฟ ยิ้มกว้าง 8 วินาที</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <video controls preload="metadata" poster="screenshots/iphone15_v2_frame.jpg">
+        <source src="videos/v2.mp4" type="video/mp4">
+      </video>
+      <div class="vmeta">
+        <div class="vtitle">📱 โฆษณา #2 — โชว์โลโก้ Apple</div>
+        <div class="vinfo">ท่าทางเป็นธรรมชาติ 8 วินาที</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <video controls preload="metadata" poster="screenshots/iphone15_v3_frame.jpg">
+        <source src="videos/v3.mp4" type="video/mp4">
+      </video>
+      <div class="vmeta">
+        <div class="vtitle">📱 โฆษณา #3 — มุมกลาง</div>
+        <div class="vinfo">ถือ iPhone ยิ้มสดใส 8 วินาที</div>
+      </div>
+    </div>
+    <div class="video-card">
+      <video controls preload="metadata" poster="screenshots/iphone15_v4_frame.jpg">
+        <source src="videos/v4.mp4" type="video/mp4">
+      </video>
+      <div class="vmeta">
+        <div class="vtitle">📱 โฆษณา #4 — ถือกล่อง 5 สี</div>
+        <div class="vinfo">เห็นสินค้าครบ 8 วินาที</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="tip">
+    <strong>✨ ทั้งหมดนี้ใช้เวลาแค่ 110 วินาที</strong> — ไม่ต้องถ่าย ไม่ต้องตัดต่อ ไม่ต้องมีประสบการณ์<br>
+    ใครๆ ก็ทำได้ แค่ 4 ขั้นตามด้านล่าง 👇
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============== STEP-BY-STEP ============== -->
+<section>
+  <h2><span class="num">1</span>เลือกสินค้า</h2>
+  <p class="lead">ไปที่หน้าแค็ตตาล็อก เลือกสินค้าที่อยากทำโฆษณา มีให้เลือก <strong>5 ล้านชิ้น</strong></p>
+  
+  <div class="step">
+    <div class="step-header">
+      <span class="step-badge">1.1</span>
+      <div class="step-title">ค้นหาสินค้าที่สนใจ</div>
+      <div class="step-time">⏱ 30 วินาที</div>
+    </div>
+    <p>พิมพ์ชื่อสินค้าในช่องค้นหา เช่น "iPhone", "ครีม", "รองเท้า" หรือเลือกจากหมวดหมู่ทางซ้าย</p>
+    <img src="screenshots/03_search.png" class="shot">
+    <p class="shot-cap">📸 ค้นหา "iPhone" → เจอสินค้าทันที</p>
+    
+    <div class="tip">
+      <strong>💡 เคล็ดลับ:</strong> ดู <span class="code">AI Score</span> ถ้า >= 60 คือทำเงินได้, 80+ คือดีมาก 🔥
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-header">
+      <span class="step-badge">1.2</span>
+      <div class="step-title">คลิกดูรายละเอียดสินค้า</div>
+      <div class="step-time">⏱ 20 วินาที</div>
+    </div>
+    <p>คลิกที่การ์ดสินค้า → ดูรายละเอียดครบทุกอย่าง ราคา ยอดขาย ค่าคอมมิชชั่น</p>
+    <img src="screenshots/07_detail.png" class="shot">
+    <p class="shot-cap">📸 หน้ารายละเอียดสินค้า — เห็นครบ 12 metrics</p>
+  </div>
+  
+  <div class="step">
+    <div class="step-header">
+      <span class="step-badge">1.3</span>
+      <div class="step-title">กดปุ่ม "เลือกไปหน้าเจน VDO"</div>
+      <div class="step-time">⏱ 5 วินาที</div>
+    </div>
+    <p>กดปุ่มสีชมพู-ส้ม <span class="code">🚀 เลือกไปหน้าเจน VDO</span> → ระบบจะเปิดหน้าใหม่พร้อมโหลดสินค้าให้อัตโนมัติ</p>
+    <img src="screenshots/gen2/iphone15_v1_frame.jpg" class="shot" style="display:none">
+    <div class="cta" style="margin: 16px 0;">
+      <div style="font-size: 18px; font-weight: 600;">👉 มีปุ่มเดียวที่ต้องกดหลังเลือกสินค้า</div>
+      <div style="font-size: 32px; margin: 8px 0;">🚀 เลือกไปหน้าเจน VDO</div>
+      <div style="font-size: 14px; opacity: 0.9;">(อยู่ใต้รูปสินค้าในหน้า detail)</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============== STEP 2 ============== -->
+<section>
+  <h2><span class="num">2</span>เลือกนางแบบ (หรือไม่ต้องก็ได้)</h2>
+  <p class="lead">เปิดหน้าเจน VDO แล้ว → ระบบจะ <strong>โหลดรูปสินค้าให้อัตโนมัติ</strong> คุณแค่เลือกนางแบบ</p>
+  
+  <div class="step">
+    <div class="step-header">
+      <span class="step-badge">2.1</span>
+      <div class="step-title">อัปโหลดรูปนางแบบ</div>
+      <div class="step-time">⏱ 15 วินาที</div>
+    </div>
+    <p>คลิกที่ช่อง "1) ภาพนางแบบ" → อัปโหลดรูปคนที่อยากให้ถือสินค้า หรือเลือก preset 3 แบบ:</p>
+    <ul>
+      <li>👩 <strong>สาวไทยน่ารัก</strong> — แนะนำสินค้าแบบน่ารักสดใส</li>
+      <li>👨 <strong>หนุ่มวัยรุ่น</strong> — แนะนำแบบเท่ๆ สายเทค</li>
+      <li>🧑‍⚕️ <strong>ผู้เชี่ยวชาญ</strong> — รีวิวแบบจริงจัง น่าเชื่อถือ</li>
+    </ul>
+    <img src="screenshots/20_gen_03_model.png" class="shot">
+    <p class="shot-cap">📸 ช่องอัปโหลดนางแบบ + preset 3 แบบ</p>
+    
+    <div class="tip">
+      <strong>💡 ใช้รูปที่:</strong> เห็นหน้าชัด · พื้นหลังเรียบ · คนเต็มตัวหรือครึ่งตัว<br>
+      <strong>ไม่ต้อง:</strong> ถ่ายเองก็ได้ (โหลดรูปจาก freepik หรือรูป influencer ที่อนุญาตให้ใช้)
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-header">
+      <span class="step-badge">2.2</span>
+      <div class="step-title">ใส่ API Key (ทำครั้งเดียว)</div>
+      <div class="step-time">⏱ 30 วินาที</div>
+    </div>
+    <p>ที่ช่อง 🔑 <strong>GenAIPro</strong> มุมขวาบน → ใส่ API key → กดบันทึก (ระบบจำให้ใน Chrome นี้ ไม่ต้องใส่ใหม่)</p>
+    <img src="screenshots/19_gen_02_key.png" class="shot">
+    <p class="shot-cap">📸 ใส่ API key ครั้งเดียว ใช้ได้ตลอด</p>
+    
+    <div class="warn">
+      <strong>🔑 API key คืออะไร?</strong> เหมือนบัตรเติมเงิน — ระบบจะหักเงินจาก key นี้ทุกครั้งที่สร้าง VDO<br>
+      ซื้อได้ที่ <span class="code">genaipro.io</span> · 1 VDO ≈ 100 credits · 100 credits ≈ $0.30
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============== STEP 3 ============== -->
+<section>
+  <h2><span class="num">3</span>กดสร้าง</h2>
+  <p class="lead">แค่กดปุ่มเดียว รอสักครู่ ระบบจะทำให้ทั้งหมด</p>
+  
+  <div class="step">
+    <div class="step-header">
+      <span class="step-badge">3.1</span>
+      <div class="step-title">กดปุ่ม "เริ่มสร้างวิดีโอ"</div>
+      <div class="step-time">⏱ 5 วินาที</div>
+    </div>
+    <p>เลื่อนลงไปข้างล่างสุด กดปุ่มสีเขียวใหญ่ <span class="code">🚀 เริ่มสร้างวิดีโอ</span></p>
+    
+    <div class="cta" style="background: linear-gradient(135deg, #16a34a 0%, #22c55e 100%);">
+      <div style="font-size: 16px;">หลังใส่ครบทุกอย่าง กดปุ่มนี้:</div>
+      <div style="font-size: 28px; font-weight: 700; margin: 12px 0;">🚀 เริ่มสร้างวิดีโอ</div>
+      <div style="font-size: 14px; opacity: 0.9;">ระบบจะเจน 1 สไตล์ × 4 คลิป ใช้เวลาประมาณ 1-2 นาที</div>
+    </div>
+  </div>
+  
+  <div class="step">
+    <div class="step-header">
+      <span class="step-badge">3.2</span>
+      <div class="step-title">รอดู Progress</div>
+      <div class="step-time">⏱ 1-2 นาที</div>
+    </div>
+    <p>ระบบจะแสดง 4 ขั้น:</p>
+    <ul>
+      <li>✅ <strong>แตกงานภาพสินค้า</strong> — ตัดรูปสินค้าออกจาก background</li>
+      <li>✅ <strong>ส่ง Prompt</strong> — AI เขียนคำอธิบายวิดีโอ</li>
+      <li>⏳ <strong>เรนเดอร์วิดีโอ</strong> — Google Veo 3.1 สร้างวิดีโอ (นานสุด)</li>
+      <li>⏳ <strong>ตรวจสอบ</strong> — เช็คคุณภาพก่อนส่ง</li>
+    </ul>
+    <img src="screenshots/22_gen_05_running.png" class="shot">
+    <p class="shot-cap">📸 ขณะกำลังสร้าง — เห็น progress ทุกขั้น</p>
+    
+    <div class="tip">
+      <strong>⏰ ใช้เวลากี่นาที?</strong> ปกติ <strong>1-2 นาที</strong> ต่อ 1 รอบ (4 คลิป)<br>
+      ถ้า server ยุ่งอาจนานถึง 5 นาที — ไม่ต้องปิดเบราเซอร์ รอได้
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============== STEP 4 ============== -->
+<section>
+  <h2><span class="num">4</span>ได้คลิป!</h2>
+  <p class="lead">เสร็จแล้ว! ดาวน์โหลดหรือโพสต์ได้เลย</p>
+  
+  <div class="step">
+    <div class="step-header">
+      <span class="step-badge">4.1</span>
+      <div class="step-title">ดูวิดีโอที่เสร็จแล้ว</div>
+      <div class="step-time">⏱ ทันที</div>
+    </div>
+    <p>เมื่อเสร็จ ระบบจะแสดง <strong>"วิดีโอพร้อมใช้งานแล้ว"</strong> พร้อมวิดีโอ 4 คลิปให้เลือก:</p>
+    <img src="screenshots/23_gen_06_done.png" class="shot">
+    <p class="shot-cap">📸 เสร็จแล้ว! 4 คลิปพร้อมใช้</p>
+  </div>
+  
+  <div class="step">
+    <div class="step-header">
+      <span class="step-badge">4.2</span>
+      <div class="step-title">เลือกคลิปที่ชอบ + ดาวน์โหลด</div>
+      <div class="step-time">⏱ 30 วินาที</div>
+    </div>
+    <p>กดดูแต่ละคลิป → เลือกคลิปที่ชอบที่สุด → กด <span class="code">📥 ดาวน์โหลด</span> (อยู่มุมบนขวา)</p>
+    <ul>
+      <li>ดาวน์โหลดมาเก็บในเครื่อง</li>
+      <li>อัปขึ้น TikTok ได้เลย</li>
+      <li>หรือส่งให้เพื่อนดูก่อน</li>
+    </ul>
+    
+    <div class="tip">
+      <strong>💡 เคล็ดลับ:</strong> ลองดูทั้ง 4 คลิปก่อน เลือกอันที่ดีที่สุด<br>
+      แต่ละคลิปจะได้ <strong>ท่าทาง + มุมกล้อง + อารมณ์</strong> ต่างกัน (เพราะ AI สร้างใหม่ทุกครั้ง)
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============== BONUS: variants ============== -->
+<section>
+  <h2>🎁 อยากได้แบบอื่นอีก?</h2>
+  <p class="lead">พอทำเป็นแล้ว ลองต่อยอดแบบนี้</p>
+  
+  <div class="step">
+    <div class="step-header">
+      <span class="step-badge">💡</span>
+      <div class="step-title">Faceless Mode — ไม่ต้องมีนางแบบ</div>
+    </div>
+    <p>ถ้าอยากทำโฆษณาที่ <strong>โฟกัสที่ตัวสินค้าล้วนๆ</strong> ไม่มีคนโผล่</p>
+    <p>👉 กดที่แท็บ "🛍️ สินค้าล้วน" แทน "นางแบบ+สินค้า" → ระบบจะใช้แค่รูปสินค้า</p>
+    <p><strong>เหมาะกับ:</strong> เครื่องสำอาง อาหารเสริม ของใช้ในบ้าน</p>
+  </div>
+  
+  <div class="step">
+    <div class="step-header">
+      <span class="step-badge">💡</span>
+      <div class="step-title">ทำหลายสไตล์พร้อมกัน</div>
+    </div>
+    <p>คลิกเลือก <strong>2-6 สไตล์</strong> พร้อมกัน (ไม่ใช่แค่ 1) → ได้ <strong>8-24 คลิป</strong> ในรอบเดียว</p>
+    <p><strong>มี 6 สไตล์ให้เลือก:</strong></p>
+    <ul>
+      <li>⚡ <strong>ป้ายยาไวรัล</strong> (default) — เร็ว กระชับ ขายของ</li>
+      <li>📦 <strong>แกะกล่อง</strong> — โชว์ packaging ตื่นเต้น</li>
+      <li>💎 <strong>พรีเมียม</strong> — แสงสตูดิโอ คมกริบ</li>
+      <li>🧑‍🏫 <strong>สาธิตวิธีใช้</strong> — บอกสเต็ปชัดเจน</li>
+      <li>🌿 <strong>มินิมอลธรรมชาติ</strong> — อบอุ่น น่าเชื่อถือ</li>
+      <li>💬 <strong>รีวิว</strong> — เล่าปัญหา-แก้ปัญหา</li>
+    </ul>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============== FAQ ============== -->
+<section>
+  <h2>❓ คำถามที่เจอบ่อย</h2>
+  
+  <div class="faq" onclick="this.classList.toggle('open')">
+    <div class="faq-q">ต้องใช้ทุกขั้นไหม? ข้ามได้มั้ย?</div>
+    <div class="faq-a">
+      ได้! ขั้นที่ 2.1 (อัปโหลดนางแบบ) ไม่บังคับ ถ้าไม่อยากมีนางแบบ → ใช้ <strong>Faceless Mode</strong> แทน ไม่ต้องอัปโหลดรูปคน
+    </div>
+  </div>
+  
+  <div class="faq" onclick="this.classList.toggle('open')">
+    <div class="faq-q">API key คืออะไร? ต้องซื้อที่ไหน?</div>
+    <div class="faq-a">
+      API key เหมือนบัตรเติมเงิน — ซื้อที่ <span class="code">genaipro.io</span><br>
+      ราคา: ~$3 ต่อ 1,000 credits · 1 VDO ใช้ ~100 credits · สร้าง 4 VDO ใช้ ~$1.2
+    </div>
+  </div>
+  
+  <div class="faq" onclick="this.classList.toggle('open')">
+    <div class="faq-q">ต้องสมัครบัญชีไหม? ใช้แบบ Guest ได้มั้ย?</div>
+    <div class="faq-a">
+      ได้! ไม่ต้องสมัครก็ใช้ได้ — ระบบจะสร้าง Guest ให้อัตโนมัติ จำไว้ใน Chrome นี้ 1 ปี<br>
+      ถ้าอยาก sync งานข้ามเครื่อง → สมัครด้วย email (ฟรี)
+    </div>
+  </div>
+  
+  <div class="faq" onclick="this.classList.toggle('open')">
+    <div class="faq-q">ใช้เวลานานแค่ไหน?</div>
+    <div class="faq-a">
+      <strong>ครั้งแรก:</strong> 5-10 นาที (เพราะต้องใส่ API key + อัปโหลดรูป)<br>
+      <strong>ครั้งต่อไป:</strong> 1-2 นาที ต่อ 1 รอบ (4 คลิป)
+    </div>
+  </div>
+  
+  <div class="faq" onclick="this.classList.toggle('open')">
+    <div class="faq-q">ได้กี่คลิปต่อการกด 1 ครั้ง?</div>
+    <div class="faq-a">
+      <strong>1 สไตล์ = 4 คลิป</strong> (AI สร้าง 4 variations ให้เลือกสวยสุด)<br>
+      <strong>2 สไตล์ = 8 คลิป</strong> · <strong>6 สไตล์ = 24 คลิป</strong>
+    </div>
+  </div>
+  
+  <div class="faq" onclick="this.classList.toggle('open')">
+    <div class="faq-q">ใช้มือถือได้ไหม?</div>
+    <div class="faq-a">
+      ได้! เว็บ responsive ใช้ได้ทั้งมือถือและ tablet<br>
+      แต่แนะนำใช้คอมเพราะเห็นภาพชัดกว่า
+    </div>
+  </div>
+  
+  <div class="faq" onclick="this.classList.toggle('open')">
+    <div class="faq-q">ใช้ทำอะไรได้บ้าง?</div>
+    <div class="faq-a">
+      • ทำ ad TikTok ขายของใน TikTok Shop<br>
+      • โปรโมทร้านค้า<br>
+      • ทำ reel / short<br>
+      • ทำคลิปรีวิวสินค้า
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ============== TROUBLESHOOTING ============== -->
+<section>
+  <h2>🆘 ติดปัญหา?</h2>
+  
+  <div class="danger">
+    <strong>❌ กดสร้างแล้วไม่ทำงาน</strong><br>
+    → เช็ค API key ว่าใส่ถูกและยังไม่หมดอายุ
+  </div>
+  
+  <div class="danger">
+    <strong>❌ รอนานเกิน 5 นาที</strong><br>
+    → กด refresh แล้วลองใหม่ · ถ้ายังไม่ได้ → server อาจยุ่ง ลองเวลาอื่น
+  </div>
+  
+  <div class="danger">
+    <strong>❌ รูปนางแบบไม่ขึ้น</strong><br>
+    → ลองไฟล์อื่น (JPG/PNG/WebP) · ไฟล์ต้องไม่เกิน 10MB
+  </div>
+  
+  <div class="danger">
+    <strong>❌ AI ไม่รู้จักสินค้า</strong><br>
+    → ลองเปลี่ยน prompt เอง · หรือใช้ Faceless Mode
+  </div>
+  
+  <div class="tip" style="margin-top: 24px;">
+    <strong>💬 ยังแก้ไม่ได้?</strong> ทักมาได้เลย — ทีมงานช่วยได้
+  </div>
+</section>
+
+<!-- ============== CTA ============== -->
+<div class="cta">
+  <h2 style="color: white; border: none; margin: 0;">🚀 พร้อมเริ่มแล้ว!</h2>
+  <p style="color: white; opacity: 0.95;">ทำตาม 4 ขั้น ใช้เวลา 5 นาที ได้คลิปแรก</p>
+  <a href="https://ttvip.sj88ai.com/catalog.html" target="_blank">👉 เปิด TT VDO เริ่มสร้างเลย</a>
+</div>
+
+<footer>
+  📚 คู่มือ TT VDO v2.0 · อัปเดต 2026-09-10<br>
+  เขียนแบบง่ายๆ ให้คนทั่วไปอ่าน · Powered by Google Veo 3.1<br>
+  <br>
+  <a href="https://ttvip.sj88ai.com/catalog.html">ttvip.sj88ai.com</a> · 
+  <a href="https://affai.upskill88.com/chapter-2/">affai.upskill88.com/chapter-2</a>
+</footer>
+
+</div>
+
+<script>
+// FAQ accordion is handled by inline onclick toggle above.
+// Smooth scroll for any future hash links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const t = document.querySelector(a.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({behavior: 'smooth', block: 'start'}); }
+  });
+});
+</script>
+</body>
+</html>

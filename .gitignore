@@ -1,0 +1,2 @@
+# Large videos - keep them on server, git-tracked but LFS would be better
+# For now, commit them anyway since total is ~19MB
